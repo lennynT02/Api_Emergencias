@@ -2,7 +2,7 @@
 import Hospitales_Publicos from '../models/Hospitales_Publicos.js'
 
 const getAllHospitalesPublicos = async (req, res) => {
-  const hospitalesPublicos = await Hospitales_Publicos.find({}, 'hospital_nombre hospital_direccion hospital_telefono -_id')
+  const hospitalesPublicos = await Hospitales_Publicos.find({})
   res.status(200).json(hospitalesPublicos)
 }
 
