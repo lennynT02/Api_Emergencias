@@ -35,9 +35,10 @@ const hospitalesPublicosSchema = new Schema({
     trim: true,
     default: 0
   },
-  imagne: {
+  img: {
     type: String,
-    trim: true
+    trim: true,
+    default: 'No disponible'
   },
   admi_id: {
     type: Schema.Types.ObjectId,

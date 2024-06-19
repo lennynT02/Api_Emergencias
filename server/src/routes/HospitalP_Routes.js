@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { verifyToken } from '../middlewares/auth.js'
 import {
   getAllHospitalesPublicos,
   getHospitalPublico,
@@ -11,8 +12,8 @@ const hospitalPRouter = Router()
 
 hospitalPRouter.get('/hospitalP', getAllHospitalesPublicos)
 hospitalPRouter.get('/hospitalP/:id', getHospitalPublico)
-hospitalPRouter.put('/hospitalP/:id', updateHospital)
-hospitalPRouter.delete('/hospitalP/:id', deleteHospital)
-hospitalPRouter.post('/hospitalP/:id', addRecurso)
+hospitalPRouter.put('/hospitalP/:id', verifyToken, updateHospital)
+hospitalPRouter.delete('/hospitalP/:id', verifyToken, deleteHospital)
+hospitalPRouter.post('/hospitalP/:id', verifyToken, addRecurso)
 
 export default hospitalPRouter

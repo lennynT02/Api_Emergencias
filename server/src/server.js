@@ -1,3 +1,5 @@
+import cloudinary from 'cloudinary'
+import fileUPload from 'express-fileupload'
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
@@ -9,6 +11,17 @@ import hospitalPRouter from './routes/HospitalP_Routes.js'
 // Instancias
 const app = express()
 dotenv.config()
+
+cloudinary.config({ // Configuración de cloudinary
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+})
+
+app.use(fileUPload({
+  useTempFiles: true,
+  tempFileDir: './uploads'
+}))
 
 // Middlewares
 app.use(express.json())

@@ -69,7 +69,7 @@ usuariosSchema.methods.matchPassword = async function (password) {
 }
 
 // Token OTP
-usuariosSchema.methods.createToken = async () => {
+usuariosSchema.methods.createToken = async function () {
   const newToken = this.token = Math.random().toString(36).slice(2)
   return newToken
 }
