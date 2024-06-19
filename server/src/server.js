@@ -32,7 +32,7 @@ app.set('port', process.env.PORT || 3000)
 
 // Ruta
 app.get('/', (req, res) => {
-  res.send.json({ msg: 'Server on' })
+  res.json({ msg: 'Server on' })
 })
 
 // Rutas api
