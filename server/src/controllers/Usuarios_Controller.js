@@ -18,7 +18,6 @@ const registro = async (req, res) => {
   const newUsuario = new Usuarios(req.body)
   newUsuario.password = await newUsuario.encryptPassword(password)
   const token = await newUsuario.createToken()
-  console.log(token)
   newUsuario.role = 'ADMIN'
   await newUsuario.save()
   await sendMail(email, token)
